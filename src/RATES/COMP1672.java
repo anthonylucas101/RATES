@@ -10,13 +10,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Hashtable;
 
-//extend JPanel and implement action listener in contructor
+//extend JPanel and implement action listener in constructor
 public class COMP1672 extends JPanel implements ActionListener {
     private JButton jcomp1, open, saveInf;
     private JPanel contentPane;
     JFileChooser fc;
     private JTextField tf;
-    private JLabel comp1, feedback;
+    private JLabel comp1, feedback, ques;
     private JTextArea intro, comment;
     private String value;
     //new commit with change
@@ -43,8 +43,11 @@ public class COMP1672 extends JPanel implements ActionListener {
         rating.setPaintLabels(true);
 
 
+
+
         //Creates and adds title for subject
         comp1 = new JLabel("COMP1672");
+        ques = new JLabel("Overall how did you find this work?");
         comp1.setFont(new Font("Verdana", Font.BOLD, 46));
         comp1.setBounds(25 + insets.left, 25 + insets.top, size().width, size().height);
         add(comp1);
@@ -76,6 +79,7 @@ public class COMP1672 extends JPanel implements ActionListener {
         saveInf = new JButton("Save Review");
         //add created objects
         add(tf);
+        add(ques);
         add(rating);
         add(feedback);
         add(comment);
@@ -89,6 +93,7 @@ public class COMP1672 extends JPanel implements ActionListener {
             public void actionPerformed(ActionEvent e) {
 
                 try {
+                    System.out.println("COMP1672 Feedback");
                     System.out.println("File Name: " + tf.getText());
                     System.out.println("Rating: " + rating.getValue());
                     System.out.println("Comment: " + comment.getText());
@@ -103,13 +108,6 @@ public class COMP1672 extends JPanel implements ActionListener {
 
             }
         });
-
-
-
-
-
-
-
 
 
 
@@ -134,17 +132,17 @@ public class COMP1672 extends JPanel implements ActionListener {
             File file = fc.getSelectedFile();
             //System.out.println(file.getName());
             tf.setText(file.getName());
-            //logTA.append("Opening " + file.getName() + ".\n");
 
             try {
                 FileReader fr = new FileReader(file.getAbsoluteFile());
-                //workTA.read(fr, null);
 
             } catch (Exception exception) {}
 
         } else {}
 
     }
+
+
 
     public Dimension getPreferredSize() {
         return (new Dimension(330, 500));

@@ -45,7 +45,7 @@ public class Builder {
             }
         });
     }
-//huh
+//huhnj
     public Dimension getPreferredSize() {
         return (new Dimension(330, 500));
     }

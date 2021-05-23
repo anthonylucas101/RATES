@@ -24,17 +24,20 @@ public class HomePanel extends JPanel {
 
 
 
-        setLayout(new FlowLayout());
+        setLayout(new FlowLayout()); //sets new flow layouut
         heading = new JLabel("WELCOME TO RATES");
         add(heading);
+
+        //Action listeners created below to give buttons an an action when clicked
+        //each button uses a string indentifier to link to a file
 
         sub1 = new JButton("COMP1672");
         sub1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                CardLayout cardLayout = (CardLayout)
+                CardLayout cardLayout = (CardLayout) //defines cardlayout
                         contentPane.getLayout();
-                cardLayout.show(contentPane, "COMP1672");
+                cardLayout.show(contentPane, "COMP1672"); //string indentifer shown here
             }
         });
         add(sub1);
@@ -88,7 +91,7 @@ public class HomePanel extends JPanel {
         subjectButton[2] = new JRadioButton("COMP3", false);
         subjectButton[3] = new JRadioButton("COMP4", false);
 
-        ButtonGroup group = new ButtonGroup();
+        ButtonGroup group = new ButtonGroup(); //creates a button group for radio buttons
         for (int i = 0; i < subjectButton.length; i++) {
             group.add(subjectButton[i]);
             add(subjectButton[i]);
