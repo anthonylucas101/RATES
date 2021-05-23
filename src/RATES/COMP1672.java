@@ -17,10 +17,10 @@ public class COMP1672 extends JPanel implements ActionListener {
     private JTextField tf;
     private JLabel comp1;
     private JTextArea intro;
-
+    //new commit with change
     public COMP1672(JPanel panel) {
 
-        Insets insets = panel.getInsets();
+        //Insets insets = panel.getInsets();
 
         JSlider rating = new JSlider(JSlider.HORIZONTAL, 1, 10, 10);
         rating.setMajorTickSpacing(10);
