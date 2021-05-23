@@ -26,6 +26,6 @@ public class COMP8734 extends JPanel{
         add(butt);
     }
     public Dimension getPreferredSize() {
-        return (new Dimension(500, 500));
+        return (new Dimension(330, 500));
     }
 }

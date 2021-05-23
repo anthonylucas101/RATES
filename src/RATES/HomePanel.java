@@ -8,7 +8,11 @@ import java.awt.event.ActionListener;
 public class HomePanel extends JPanel {
     private JButton jcomp4, sub1, sub2, sub3, sub4;
     private JPanel contentPane;
-    private JLabel heading;
+    private JLabel heading, question, fav, anser;
+    private final int NUM_SUB = 4;
+    private Color [] subject = new Color[NUM_SUB];
+    private JRadioButton [] subjectButton = new JRadioButton[NUM_SUB];
+
 
 
     public HomePanel(JPanel panel) {
@@ -17,8 +21,12 @@ public class HomePanel extends JPanel {
         setBackground(Color.RED.darker());
 
 
+
+
+
         setLayout(new FlowLayout());
         heading = new JLabel("WELCOME TO RATES");
+        add(heading);
 
         sub1 = new JButton("COMP1672");
         sub1.addActionListener(new ActionListener() {
@@ -64,13 +72,54 @@ public class HomePanel extends JPanel {
         });
         add(sub4);
 
-        add(heading);
+        question = new JLabel("What has been your favourite subject so far");
+        add(question);
+
+        fav = new JLabel("My favourite subject is: ");
+        anser = new JLabel("");
+
+        subject[0] = Color.white;
+        subject[1] = Color.white;
+        subject[2] = Color.white;
+        subject[3] = Color.white;
+
+        subjectButton[0] = new JRadioButton("COMP1", true);
+        subjectButton[1] = new JRadioButton("COMP2", false);
+        subjectButton[2] = new JRadioButton("COMP3", false);
+        subjectButton[3] = new JRadioButton("COMP4", false);
+
+        ButtonGroup group = new ButtonGroup();
+        for (int i = 0; i < subjectButton.length; i++) {
+            group.add(subjectButton[i]);
+            add(subjectButton[i]);
+            JRadioButton selectedButton = null;
+
+            if (subjectButton[0].isSelected()) {
+                selectedButton = subjectButton[0];
+            } else if (subjectButton[1].isSelected()) {
+                selectedButton = subjectButton[1];
+            } else if (subjectButton[2].isSelected()) {
+                selectedButton = subjectButton[2];
+            } else if (subjectButton[3].isSelected()) {
+                selectedButton = subjectButton[3];
+            }
+
+            String choice = selectedButton.getText();
+            anser.setText(choice);
+        }
+
+
+
+
+        add(fav);
+        add(anser);
+
 
     }
 
 
 
     public Dimension getPreferredSize() {
-        return (new Dimension(500, 500));
+        return (new Dimension(330, 500));
     }
 }

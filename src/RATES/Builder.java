@@ -45,4 +45,8 @@ public class Builder {
         });
     }
 
+    public Dimension getPreferredSize() {
+        return (new Dimension(330, 500));
+    }
+
 }
