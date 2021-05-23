@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+//intantiates subject objects for each of the subject panels and homepanels
 public class Builder {
     private JPanel contentPane;
     private HomePanel panel1;
@@ -18,7 +19,7 @@ public class Builder {
 
         JPanel contentPane = new JPanel();
         contentPane.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-
+        //adds instantiated objects to content pane panel
         contentPane.setLayout(new CardLayout());
         panel1 = new HomePanel(contentPane);
         panel2 = new COMP1672(contentPane);
